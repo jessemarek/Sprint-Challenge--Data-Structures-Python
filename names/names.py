@@ -16,11 +16,20 @@ name_tree = BSTNode("")
 duplicates = []  # Return the list of duplicates in this data structure
 
 # Replace the nested for loops below with your improvements
-""" for name_1 in names_1:
+for name_1 in names_1:
     for name_2 in names_2:
         if name_1 == name_2:
             duplicates.append(name_1)
- """
+
+end_time = time.time()
+print(f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
+print(f"runtime: {end_time - start_time} seconds\n\n")
+
+""" MY IMPROVEMENT SOULTION """
+start_time = time.time()
+
+duplicates = []
+
 # insert all the names in one list into a BST
 for name in names_1:
     name_tree.insert(name)
