@@ -11,7 +11,6 @@ f = open('names_2.txt', 'r')
 names_2 = f.read().split("\n")  # List containing 10000 names
 f.close()
 
-name_tree = BSTNode("")
 
 duplicates = []  # Return the list of duplicates in this data structure
 
@@ -26,6 +25,8 @@ print(f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
 print(f"runtime: {end_time - start_time} seconds\n\n")
 
 """ MY IMPROVEMENT SOULTION """
+name_tree = BSTNode("")
+
 start_time = time.time()
 
 duplicates = []
