@@ -1,4 +1,5 @@
 import time
+from binary_search_tree import BSTNode
 
 start_time = time.time()
 
@@ -10,6 +11,7 @@ f = open('names_2.txt', 'r')
 names_2 = f.read().split("\n")  # List containing 10000 names
 f.close()
 
+
 duplicates = []  # Return the list of duplicates in this data structure
 
 # Replace the nested for loops below with your improvements
@@ -19,10 +21,36 @@ for name_1 in names_1:
             duplicates.append(name_1)
 
 end_time = time.time()
-print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
-print (f"runtime: {end_time - start_time} seconds")
+print(f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
+print(f"runtime: {end_time - start_time} seconds\n\n")
+
+""" MY IMPROVEMENT SOULTION """
+name_tree = BSTNode("")
+
+start_time = time.time()
+
+duplicates = []
+
+# insert all the names in one list into a BST
+for name in names_1:
+    name_tree.insert(name)
+
+# look at every name in the second list
+# and see if the BST cointains it. If it
+# does then add it to the duplicates list
+for name in names_2:
+    if name_tree.contains(name):
+        duplicates.append(name)
+
+
+end_time = time.time()
+print(f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
+print(f"runtime: {end_time - start_time} seconds")
 
 # ---------- Stretch Goal -----------
-# Python has built-in tools that allow for a very efficient approach to this problem
-# What's the best time you can accomplish?  Thare are no restrictions on techniques or data
-# structures, but you may not import any additional libraries that you did not write yourself.
+# Python has built-in tools that allow for a very
+# efficient approach to this problem
+# What's the best time you can accomplish?
+# There are no restrictions on techniques or data
+# structures, but you may not import any additional
+# libraries that you did not write yourself.
